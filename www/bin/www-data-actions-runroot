@@ -1,0 +1,5 @@
+#!/bin/bash
+DATE=`date`
+echo $DATE
+
+[ -x /home/www/www-data-actions/runroot ] && /home/www/www-data-actions/runroot

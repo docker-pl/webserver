@@ -1,0 +1,3 @@
+count=`cat /home/www/log/gitpull | wc -l`
+
+( [ $count != "51" ] && echo $count; sleep 10; [ $count != "51" ] && echo $count miscount - notify someone ) &

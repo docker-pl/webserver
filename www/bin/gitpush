@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DATE=`date`
+echo $DATE
+for file in /home/www/*com; do 
+  echo $file
+  cd $file
+  /home/www/bin/gcm &
+done

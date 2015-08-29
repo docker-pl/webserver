@@ -1,0 +1,9 @@
+#!/bin/bash
+DATE=`date`
+echo $DATE
+
+[ -x /home/www/bin/heartbeat ] && (/home/www/bin/heartbeat)
+[ -d /home/www/www-data-actions ] && ( cd /home/www/www-data-actions;git pull )
+[ ! -d /home/www/www-data-actions ] && ( cd /home/www; cd /home/www; git clone git@bitbucket.org:onztvops/www-data-actions.git )
+
+[ -x /home/www/www-data-actions/runme ] && /home/www/www-data-actions/runme 

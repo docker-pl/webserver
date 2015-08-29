@@ -1,0 +1,33 @@
+#!/bin/bash
+DATE=`date`
+ROOT=/home/www
+LOG="$ROOT/log/gitpull.log"
+PID=""
+
+skipsites="www.alex2006hw.com"
+
+sites="dev.clouderg.com
+dev.onztv.com
+devr1.onztv.com
+opentv.clouderg.com
+receiver.clouderg.com
+receiver.onztv.com
+responsiblehuman.com
+sender.onztv.com
+tv.clouderg.com
+tv.onztv.com
+www.clouderg.com
+www.cobjet.com
+www-data-actions
+www.mypigbank.com
+www.onztv.com
+www.responsiblehuman.com
+www.workagent.com
+www.2bees.com
+www.zergut2012.com"
+
+echo "Starting gitpull" > $LOG
+for dir  in $sites; do
+  app="$ROOT/$dir"
+  (( echo "checking $app..." ) && [ -d "$app" ] && ( cd $app; echo "gitpull $app"; git pull )) >> $LOG  &
+done

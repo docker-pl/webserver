@@ -1,0 +1,6 @@
+ROOT=/home/www
+LOG=$HOME/log/runall.log
+
+( [ -x $ROOT/bin/run-forever ] && ( $ROOT/bin/run-forever )) 2>&1 > $LOG
+( [ -x $ROOT/bin/gitpull ] && ( $ROOT/bin/gitpull )) 2>&1 > $LOG
+

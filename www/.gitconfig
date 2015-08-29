@@ -1,0 +1,5 @@
+[push]
+	default = simple
+[user]
+	name = www-data@vpn1.onztv.com
+	email = admin@onztv.com

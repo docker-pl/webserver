@@ -1,0 +1,22 @@
+#!/bin/sh
+
+
+#    gpg -c --batch --cipher-algo AES256 --passphrase $PASSWD -o $fileName.gpg $fileName
+#    openssl enc -aes-256-cbc -e -in $fileName -out $fileName.openssl -pass pass:$PASSWD
+
+fileName=$1
+if [ ! $fileName ]; then
+	echo "usage : $0 filename"
+  exit 1
+else
+	echo "Please enter your passphrase follows by <return>"
+    stty -echo
+	read PASSWD
+    stty echo
+    echo "encrypt $fileName using openssl"
+    openssl enc -aes-256-cbc -e -in $fileName -out $fileName.openssl -pass pass:$PASSWD
+  result=$?
+  if [ $result -eq "1" ]; then
+    echo "Did not find any encryption tool"
+  fi
+fi
